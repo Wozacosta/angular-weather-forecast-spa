@@ -1,1 +1,21 @@
 Forecast for {{city}}
+
+<div ng-repeat="w in weatherResult.list">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{w.dt}}</h3>
+        </div>
+        <div class="panel-body">
+          Daytime temperature: <span ng-if="tempScale.scale === 'F'">{{convertToFahrenheit(w.temp.day)}}°F</span>
+          <span ng-if="tempScale.scale === 'C'">{{convertToCelsius(w.temp.day)}}°C</span>
+          <!--<div ng-switch on="tempScale.scale">
+            <span ng-switch-when="F">{{convertToFahrenheit(w.main.temp)}}°F</span>
+            <span ng-switch-when="C">{{convertToCelsius(w.main.temp)}}°C</span>
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
